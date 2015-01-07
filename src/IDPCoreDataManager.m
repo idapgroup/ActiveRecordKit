@@ -59,16 +59,11 @@ static IDPCoreDataManager *__sharedManager = nil;
                          momName:(NSString *)mom
                        storeType:(NSString *)storeType
 {
-    static dispatch_once_t once;
-    #warning TEMP decision
-//    dispatch_once(&once, ^{
     if (!__sharedManager) {
         __sharedManager = [[self alloc] init];
         __sharedManager.storeName = store;
         __sharedManager.momName = mom;
         __sharedManager.storeType = storeType;
-//    });
-
     }
 	return __sharedManager;
 }
@@ -77,16 +72,12 @@ static IDPCoreDataManager *__sharedManager = nil;
 #pragma mark Singleton Service
 
 + (id)allocWithZone:(NSZone *)zone {
-    static dispatch_once_t once;
-    
+
     __block id result = __sharedManager;
     
-#warning TEMP decision
-//    dispatch_once(&once, ^{
     if (!__sharedManager) {
         result = [super allocWithZone:zone];
     }
-//    });
 
     return result;
 }
@@ -115,12 +106,9 @@ static IDPCoreDataManager *__sharedManager = nil;
 #pragma mark Initialization
 
 - (id)init {
-    static dispatch_once_t once;
-    
+
     __block id result = self;
     
-    #warning TEMP decision
-//    dispatch_once(&once, ^{
     if (!__sharedManager) {
         result = [super init];
         if (nil != result) {
@@ -131,8 +119,7 @@ static IDPCoreDataManager *__sharedManager = nil;
                  onApplicationEvent:UIApplicationDidEnterBackgroundNotification];
         }
     }
-//    });
-    
+
     self = result;
 
 	return self;
@@ -192,8 +179,6 @@ static IDPCoreDataManager *__sharedManager = nil;
     }
 	
 	if (self.momName != nil) {
-#warning TEST that shit carefully possible drawbacks for such a hack to find the main bundle
-//		NSString *modelPath = [[NSBundle mainBundle] pathForResource:self.momName ofType:@"momd"];
 		NSBundle *bundle = [NSBundle bundleForClass:[self class]];
 		NSString *modelPath = [bundle pathForResource:self.momName ofType:@"momd"];
 		if (modelPath == nil) {
