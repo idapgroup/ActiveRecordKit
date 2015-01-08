@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = "ActiveRecordKit"
   s.version = "0.1.1"
-  s.summary = "Common methods used for both AppKit and IDPKit"
+  s.summary = "Basic IDAP Group classes"
   s.homepage = "https://github.com/idapgroup/ActiveRecordKit"
   s.license = { :type => "New BSD", :file => "LICENSE" }
   s.author = { "IDAP Group" => "admin@idapgroup.com" }
