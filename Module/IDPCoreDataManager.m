@@ -6,7 +6,6 @@
 //  Copyright 2010 RedShiftLab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "IDPCoreDataManager.h"
 
 #import "NSFileManager+IDPExtensions.h"
